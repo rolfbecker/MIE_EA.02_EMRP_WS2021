@@ -5,12 +5,12 @@
 
 Clone the repo from `github.com`:
 ```
-git clone https://github.com/rolfbecker/MIE_EA.02_EMRP_WS2020.git
+git clone https://github.com/rolfbecker/MIE_EA.02_EMRP_WS2021.git
 ```
 
 In case you have cloned from `github.com` already pull the repo (update local from remote):
 ```
-cd MIE_EA.02_EMRP_WS2020
+cd MIE_EA.02_EMRP_WS2021
 git pull
 ```
 
