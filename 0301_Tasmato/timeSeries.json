@@ -1,0 +1,137 @@
+[
+    {
+        "id": "cd7f087899c08120",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f779bdb3114d34ce",
+        "type": "mqtt in",
+        "z": "cd7f087899c08120",
+        "name": "/emrp2021/atakan/sensor01",
+        "topic": "tele/tasmota_3053A0/SENSOR",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "216c1dd3085afba9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 460,
+        "y": 200,
+        "wires": [
+            [
+                "5f2b0de904ab3de6"
+            ]
+        ]
+    },
+    {
+        "id": "5ac10ee6cfcc8174",
+        "type": "ui_chart",
+        "z": "cd7f087899c08120",
+        "name": "",
+        "group": "2027137c8ceb4f25",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Time Series",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 750,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f2b0de904ab3de6",
+        "type": "function",
+        "z": "cd7f087899c08120",
+        "name": "Exact Temperature",
+        "func": "let temperature = msg.payload.DS18B20.Temperature;\nif (msg.payload.Switch1 == \"OFF\"){\n    return;\n}\nreturn { payload: temperature };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 340,
+        "wires": [
+            [
+                "5ac10ee6cfcc8174"
+            ]
+        ]
+    },
+    {
+        "id": "216c1dd3085afba9",
+        "type": "mqtt-broker",
+        "name": "broker.hivemq.com",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2027137c8ceb4f25",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "20b80f6140a4b3ba",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "20b80f6140a4b3ba",
+        "type": "ui_tab",
+        "name": "EMRP2021",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
